@@ -55,11 +55,12 @@ plt.show()
 X_clas = np.append(X_train, X_test[:1, :], axis=0)
 X_clas = preprocessing.scale(X_clas)
 X_clas = TSNE(n_components=2, init='random').fit_transform(X_clas)
-
+# EXERCISE 1
 distance_matrix=np.zeros((101,101))
 for i in range(101):
     for j in range(101):
         distance_matrix[i,j]+=sqrt((X_clas[i,0]-X_clas[j,0])**2+(X_clas[i,1]-X_clas[j,1])**2)
+# EXERCISE 2
 array_tmp=np.argsort(distance_matrix)
 k_nn=array_tmp[:,1:4]
 # Passar de matriu a graf
