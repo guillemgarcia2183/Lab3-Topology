@@ -72,5 +72,14 @@ for i in range(len(k_nn)):
     for vei in k_nn[i]:
         if float(i) in k_nn[int(vei)]:
             matriu_adjacencia[i,int(vei)]+=1
-# Passar de matriu a graf
-# G=nx.from_numpy_matrix(matriu_adjacencies)
+            
+# EXERCISE 4
+plt.clf()
+G=nx.from_numpy_matrix(matriu_adjacencia)
+cols.append('black')
+nx.draw(G,pos= X_clas,node_color = cols)
+for i in range(n_examples_plot-1):
+    txt = X_train_labels[i]
+    plt.annotate(txt, (X_clas[i,0],X_clas[i,1]))
+plt.annotate(X_test_labels[num_objects_test-1],(X_clas[-1,0],X_clas[-1,1]))
+plt.show()
